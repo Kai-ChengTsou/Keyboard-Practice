@@ -34,12 +34,20 @@ document.addEventListener("keyup", event => {
     keyElement.classList.remove("hit")
   })
   
+
+
   if (keyPressed === highlightedKey.innerHTML) {
     timestamps.unshift(getTimestamp());
     const elapsedTime = timestamps[0] - timestamps[1];
     console.log(`Character per minute ${60/elapsedTime}`)
     highlightedKey.classList.remove("selected");
     targetRandomKey();
+
+
+    const countElement = document.getElementById("count");
+    let count = parseInt(countElement.innerText.split(": ")[1]);
+    count++;
+    countElement.innerText = `Count: ${count}`;
   } 
 })
 
