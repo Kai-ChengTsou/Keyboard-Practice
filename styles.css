@@ -39,6 +39,10 @@ body::before {
   #count{
     color: #f07acd;
   }
+
+  #timer {
+    color: #acf0df;
+  }
   
   .keyboard {
     display: flex;

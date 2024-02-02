@@ -2,6 +2,12 @@ const keys = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 
 const timestamps = [];
 
+let timer = 60;
+
+const timerElement = document.getElementById("timer")
+
+const countElement = document.getElementById("count");
+
 timestamps.unshift(getTimestamp());
 
 function getRandomNumber(min, max) {
@@ -44,11 +50,27 @@ document.addEventListener("keyup", event => {
     targetRandomKey();
 
 
-    const countElement = document.getElementById("count");
+    
     let count = parseInt(countElement.innerText.split(": ")[1]);
     count++;
     countElement.innerText = `Count: ${count}`;
+    const intervalId = setInterval(() => {
+      if(timer > 0) {
+        timer--
+        timerElement.innerText = `Time: ${timer}`
+      } else {
+        clearInterval(intervalId)
+        timerElement.innerText = `Time: 0`
+      }
+    }, 1000)
   } 
+
+  
 })
+
+
+
+
+
 
 targetRandomKey();
